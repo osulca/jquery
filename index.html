@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="nombres" placeholder="Ingrese su nombre"/><br>
+    <input type="text" id="apellidos" placeholder="Ingrese sus apellidos"/><br>
+    <p>Parrafo</p>
+    <p class="clase">Clases</p>
+    <p id="id">Identificador</p>
+    <button id="mostrar">Mostrar</button>
+    <button id="ocultar">Ocultar</button>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#ocultar").click(function () {
+            $("p").hide();
+        });
+
+        $("#mostrar").click(function () {
+            $(".clase").show();
+            $("#id").show();
+            // manipular contenido
+            $("#id").text(
+                $(".clase").html()
+            );
+            $(".clase").text(
+                $("#nombres").val()
+            );
+            //alert("mensaje enviado por: "+$("#nombres").val()+$("#apellidos").val());
+        });
+
+        $("#nombres").mouseenter(function () {
+            $("#nombres").css("background-color", "yellow");
+            $(".clase").css("color", "yellow");
+        });
+
+        $("#nombres").mouseleave(function () {
+            $("#nombres").css("background-color", "blue");
+            $("#id").css("color", "blue");
+        });
+
+        $("#nombres").focus(function () {
+            $("#apellidos").css("background-color", "green");
+            $("p").css("color", "green");
+        });
+    });
+</script>
+</html>
